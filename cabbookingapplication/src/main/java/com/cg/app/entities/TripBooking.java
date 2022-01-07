@@ -1,6 +1,7 @@
 package com.cg.app.entities;
 
 public class TripBooking {
+	
 	private int tripbookingid;
 	private String fromlocation;
 	private String tolocation;
