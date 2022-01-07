@@ -1,67 +1,160 @@
 package com.cg.app.entities;
 
+import java.time.LocalDateTime;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+
 public class TripBooking {
 	
-	private int tripbookingid;
-	private String fromlocation;
-	private String tolocation;
+	private int tripBookingId;
+	private Customer customer;
+	private Driver driver;
+	private String fromLocation;
+	private String toLocation;
+	private LocalDateTime fromDateTime;
+	private LocalDateTime toDateTime;
 	private boolean status;
-	private float distanceinkm;
+	private float distanceInKm;
 	private float bill;
-	public void TripBooking() {
 	
+public TripBooking() {
+	// TODO Auto-generated constructor stub
+}
+	
+
+
+	public TripBooking(int tripbookingId, Customer customer, Driver driver, String fromLocation, String toLocation,
+			LocalDateTime fromDateTime, LocalDateTime toDateTime, boolean status, float distanceInKm, float bill) {
+		super();
+		this.tripBookingId = tripBookingId;
+		this.customer = customer;
+		this.driver = driver;
+		this.fromLocation = fromLocation;
+		this.toLocation = toLocation;
+		this.fromDateTime = fromDateTime;
+		this.toDateTime = toDateTime;
+		this.status = status;
+		this.distanceInKm = distanceInKm;
+		this.bill = bill;
+		
+		
+		
 	}
-	public int getTripbookingid() {
-		return tripbookingid;
+
+
+	public int getTripBookingId() {
+		return tripBookingId;
 	}
-	public void setTripbookingid(int tripbookingid) {
-		this.tripbookingid = tripbookingid;
+
+
+	public void setTripBookingId(int tripBookingId) {
+		this.tripBookingId = tripBookingId;
 	}
-	public String getFromlocation() {
-		return fromlocation;
+
+
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setFromlocation(String fromlocation) {
-		this.fromlocation = fromlocation;
+
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
-	public String getTolocation() {
-		return tolocation;
+
+
+	public Driver getDriver() {
+		return driver;
 	}
-	public void setTolocation(String tolocation) {
-		this.tolocation = tolocation;
+
+
+	public void setDriver(Driver driver) {
+		this.driver = driver;
 	}
+
+
+	public String getFromLocation() {
+		return fromLocation;
+	}
+
+
+	public void setFromLocation(String fromLocation) {
+		this.fromLocation = fromLocation;
+	}
+
+
+	public String getToLocation() {
+		return toLocation;
+	}
+
+
+	public void setToLocation(String toLocation) {
+		this.toLocation = toLocation;
+	}
+
+
+	public LocalDateTime getFromDateTime() {
+		return fromDateTime;
+	}
+
+
+	public void setFromDateTime(LocalDateTime fromDateTime) {
+		this.fromDateTime = fromDateTime;
+	}
+
+
+	public LocalDateTime getToDateTime() {
+		return toDateTime;
+	}
+
+
+	public void setToDateTime(LocalDateTime toDateTime) {
+		this.toDateTime = toDateTime;
+	}
+
+
 	public boolean isStatus() {
 		return status;
 	}
+
+
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
-	public float getDistanceinkm() {
-		return distanceinkm;
+
+
+	public float getDistanceInKm() {
+		return distanceInKm;
 	}
-	public void setDistanceinkm(float distanceinkm) {
-		this.distanceinkm = distanceinkm;
+
+
+	public void setDistanceInKm(float distanceInKm) {
+		this.distanceInKm = distanceInKm;
 	}
+
+
 	public float getBill() {
 		return bill;
 	}
+
+
 	public void setBill(float bill) {
 		this.bill = bill;
 	}
+	
+	
+
 	@Override
 	public String toString() {
-		return "TripBooking [tripbookingid=" + tripbookingid + ", fromlocation=" + fromlocation + ", tolocation="
-				+ tolocation + ", status=" + status + ", distanceinkm=" + distanceinkm + ", bill=" + bill + "]";
+		return "TripBooking [tripbookingId=" + tripBookingId + ", customer=" + customer + ", driver=" + driver
+				+ ", fromLocation=" + fromLocation + ", toLocation=" + toLocation + ", fromDateTime=" + fromDateTime
+				+ ", toDateTime=" + toDateTime + ", status=" + status + ", distanceInKm=" + distanceInKm + ", bill="
+				+ bill + "]";
 	}
-	public TripBooking(int tripbookingid, String fromlocation, String tolocation, boolean status, float distanceinkm,
-			float bill) {
-		super();
-		this.tripbookingid = tripbookingid;
-		this.fromlocation = fromlocation;
-		this.tolocation = tolocation;
-		this.status = status;
-		this.distanceinkm = distanceinkm;
-		this.bill = bill;
-	}
+	
+	
+	
+	
 	
 	
 
