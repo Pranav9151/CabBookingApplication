@@ -1,5 +1,5 @@
 package com.cg.app.service;
 
-public class ICabRepository {
+public class ICabService {
 
 }
