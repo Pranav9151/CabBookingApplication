@@ -1,5 +1,8 @@
 package com.cg.app.entities;
 
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public abstract class AbstractUser {
 
 	private String username;

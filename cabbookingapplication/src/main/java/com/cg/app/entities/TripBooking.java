@@ -2,15 +2,26 @@ package com.cg.app.entities;
 
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
+@Entity
 public class TripBooking {
 	
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int tripBookingId;
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "customerId", referencedColumnName = "customerId")
 	private Customer customer;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "driverId", referencedColumnName = "driverId")
 	private Driver driver;
 	private String fromLocation;
 	private String toLocation;
