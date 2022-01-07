@@ -1,4 +1,4 @@
-package com.cg.beans;
+package com.cg.entities;
 
 public abstract class AbstractUser {
 
