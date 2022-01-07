@@ -2,10 +2,12 @@ package com.cg.app.entities;
 
 import java.time.LocalDateTime;
 
+
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-
 public class TripBooking {
+	
 	
 	private int tripBookingId;
 	private Customer customer;
