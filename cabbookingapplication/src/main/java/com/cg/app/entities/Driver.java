@@ -1,4 +1,4 @@
-package com.cg.entities;
+package com.cg.app.entities;
 
 public class Driver {
 	
