@@ -1,4 +1,4 @@
-package com.cg.repository;
+package com.cg.app.repository;
 
 public class ICustomerRepository {
 
