@@ -4,25 +4,26 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cg.app.entities.Customer;
-import com.cg.app.repository.ICustomerRepository;
+import com.cg.app.repositories.ICustomerRepository;
 
-@Service("customerSer")
+import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
+
+@Service
 public class ICustomerServiceImpl implements ICustomerService {
-	
 	@Autowired
-	ICustomerRepository customerservice;
-
+	 private  ICustomerRepository customerRepo;
+	
 	@Override
 	public Customer insertCustomer(Customer customer) {
-		
-		
-		return null;
+		 Customer savedCustomer=customerRepo.save(customer);
+		return savedCustomer;
 	}
 
 	@Override
 	public Customer updateCustomer(Customer customer) {
+		
+		
 		
 		
 		return null;
@@ -30,14 +31,14 @@ public class ICustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer deleteCustomer(Customer customer) {
-		customerservice.delete(customer);
+		customerRepo.delete(customer);
 		return customer;
 	}
 
 	@Override
 	public List<Customer> viewCustomer(int customerId) {
 		
-		return customerservice.findAll();
+		return customerRepo.findAll();
 	}
 
 	@Override
