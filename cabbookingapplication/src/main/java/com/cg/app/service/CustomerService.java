@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cg.app.entities.Customer;
 
-public interface ICustomerService {
+public interface CustomerService {
 	
 	public Customer insertCustomer(Customer customer);
 	

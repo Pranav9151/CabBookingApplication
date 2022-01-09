@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.app.entities.Customer;
-import com.cg.app.repository.ICustomerRepository;
+import com.cg.app.repository.CustomerRepository;
 
 @Service("customerSer")
-public class ICustomerServiceImpl implements ICustomerService {
+public class ICustomerServiceImpl implements CustomerService {
 	
 	@Autowired
-	ICustomerRepository customerservice;
+	CustomerRepository customerservice;
 
 	@Override
 	public Customer insertCustomer(Customer customer) {

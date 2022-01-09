@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Driver  {
+public class Driver extends AbstractUser  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
