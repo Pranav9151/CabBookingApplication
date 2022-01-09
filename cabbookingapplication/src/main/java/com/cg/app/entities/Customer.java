@@ -24,7 +24,17 @@ public class Customer extends AbstractUser{
 	public void setCustomerId(int customerId) {
 		CustomerId = customerId;
 	}
-	
-	
-	
+
+	public Customer() {
+
+	}
+
+	public Customer get() {
+		 
+		return null;
+	}
 }
+	
+	
+	
+
