@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Customer {
+public class Customer extends AbstractUser {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +23,15 @@ public class Customer {
 
 	public void setCustomerId(int customerId) {
 		CustomerId = customerId;
+	}
+
+	public Customer() {
+
+	}
+
+	public Customer get() {
+		 
+		return null;
 	}
 	
 	

@@ -22,11 +22,17 @@ public class ICustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer updateCustomer(Customer customer) {
+		Customer upd= customerRepo.findByCustomerId(customer.getCustomerId()).get();
+		if(upd != null) {
+			
+			upd.setEmail(customer.getEmail());
+			upd.setMobileNumber(customer.getMobileNumber());
+			upd.setUsername(customer.getUsername());
+			upd.setPassword(customer.getPassword());
+			customerRepo.save(upd);
+		}
+		return upd;
 		
-		
-		
-		
-		return null;
 	}
 
 	@Override
