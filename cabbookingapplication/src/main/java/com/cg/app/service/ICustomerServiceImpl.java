@@ -10,7 +10,7 @@ import com.cg.app.repository.ICustomerRepository;
 import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
 
 @Service("customerSer")
-public class ICustomerServiceImpl implements CustomerService {
+public class ICustomerServiceImpl implements ICustomerService {
 
 	@Autowired
 	ICustomerRepository customerservice;
@@ -46,7 +46,7 @@ public class ICustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<Customer> viewCustomer(int customerId) {
+	public List<Customer> viewCustomers() {
 		
 		return customerRepo.findAll();
 	}
@@ -55,6 +55,10 @@ public class ICustomerServiceImpl implements CustomerService {
 	public Customer validateCustomer(String username, String password) {
 		
 		return null;
+	}
+	@Override
+	public Customer viewCustomer(int customerId) {
+		return customerRepo.findById(customerId).get();
 	}
 	
 	

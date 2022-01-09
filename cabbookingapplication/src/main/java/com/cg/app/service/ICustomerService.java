@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.cg.app.entities.Customer;
 
-public interface CustomerService {
+public interface ICustomerService {
 	
 	public Customer insertCustomer(Customer customer);
 	
@@ -12,7 +12,8 @@ public interface CustomerService {
 	
 	public Customer deleteCustomer(Customer customer);
 	
-	public List<Customer> viewCustomer(int customerId);
+	public List<Customer> viewCustomers();
+	public Customer viewCustomer(int customerId);
 	
 	public Customer validateCustomer(String username, String password);
 	
