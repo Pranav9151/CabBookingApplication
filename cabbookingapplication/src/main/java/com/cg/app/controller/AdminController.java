@@ -36,14 +36,11 @@ public class AdminController {
 	@Autowired
 	ICustomerService cusService;
 	@PostMapping("/login")
-	public String validateAdmin(@RequestBody Admin admin) throws InvalidUserOrPasswordException {
-		String response;
-		try {
-			response = ls.validateCredintials(admin);
-		} catch (Exception e) {
-			throw new InvalidUserOrPasswordException("Invalid Username/Password");
-		}
-		return response;
+	public String validateAdmin(@RequestBody Admin admin)  {
+		
+		
+			return ls.validateCredintials(admin);
+		
 	}
 	
 	@PostMapping
