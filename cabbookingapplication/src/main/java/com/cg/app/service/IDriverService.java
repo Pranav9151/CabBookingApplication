@@ -9,9 +9,9 @@ public interface IDriverService {
 	
 	public List<Driver> displayAllDriver();
 	
-	public Driver viewdriver(int driverId) throws DriverNotFoundException;
+	public Driver viewDriver(int driverId) throws DriverNotFoundException;
 	
-	public List<Driver> viewBestDriver() throws DriverNotFoundException;
+	public List<Driver> viewBestDrivers() throws DriverNotFoundException;
 	
 	public List<Driver> insertDriver(Driver driver);
 	

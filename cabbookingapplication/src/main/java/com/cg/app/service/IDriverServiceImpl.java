@@ -1,61 +1,49 @@
 package com.cg.app.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.app.entities.Driver;
 import com.cg.app.exception.DriverNotFoundException;
+import com.cg.app.repository.IDriverRepository;
 
-@Service
+@Service("ids")
 public class IDriverServiceImpl implements IDriverService{
 
-	@Override
+@Autowired
+	IDriverRepository dDao;
+@Override
 	public List<Driver> displayAllDriver() {
-		
-		
-		
-		return null;
+		return dDao.findAll();
 	}
-
 	@Override
-	public Driver viewdriver(int driverId) throws DriverNotFoundException {
-
-
-		
-		return null;
+	public Driver viewDriver(int driverId) throws DriverNotFoundException {
+		return dDao.findById(driverId).get();
 	}
-
 	@Override
-	public List<Driver> viewBestDriver() throws DriverNotFoundException {
-
-
-		
-		return null;
+	public List<Driver> viewBestDrivers() throws DriverNotFoundException {
+		List<Driver> bestDrivers = dDao.findAll();
+		return bestDrivers.stream().filter((d) -> d.getRating() >= 4.5).collect(Collectors.toList());
 	}
 
 	@Override
 	public List<Driver> insertDriver(Driver driver) {
-
-
-		
-		return null;
+		dDao.saveAndFlush(driver);
+		return dDao.findAll();
 	}
 
 	@Override
 	public Driver updateDriver(Driver driver) throws DriverNotFoundException {
 
-
-		
-		return null;
+		return dDao.saveAndFlush(driver);
 	}
-
 	@Override
 	public List<Driver> deleteDriver(int driverId) throws DriverNotFoundException {
-
-
-		
-		return null;
+		dDao.deleteById(driverId);
+		return dDao.findAll();
 	}
 
 }
