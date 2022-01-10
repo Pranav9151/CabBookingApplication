@@ -27,14 +27,9 @@ public class CustomerController {
 	@Autowired
 	LoginService ls;
 	@PostMapping("/login")
-	public String validateCustomer(@RequestBody Customer customer) throws InvalidUserOrPasswordException {
-		String response;
-		try {
-			response = ls.validateCredintials(customer);
-		} catch (Exception e) {
-			throw new InvalidUserOrPasswordException("Invalid Username/Password");
-		}
-		return response;
+	public String validateCustomer(@RequestBody Customer customer) {
+
+		return ls.validateCredintials(customer);
 	}
 	@PostMapping
 	public Customer insertCustomer(@RequestBody Customer customer) {
@@ -43,9 +38,7 @@ public class CustomerController {
 	@SuppressWarnings("unused")
 	@PutMapping
 	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException {
-		Customer cViewer = null;
-		Customer c = null;
-		try {
+		
 			cViewer = viewCustomer(customer.getCustomerId());
 			c = cusService.updateCustomer(customer);
 		} catch (Exception e) {
