@@ -5,7 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Admin extends AbstractUser{
 	
 	
@@ -13,18 +20,7 @@ public class Admin extends AbstractUser{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int adminId;
 
-	public int getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(int adminId) {
-		this.adminId = adminId;
-	}
 	
-	public Admin(int adminId) {
-		super();
-		this.adminId=adminId;
-	}
 
 	
 }

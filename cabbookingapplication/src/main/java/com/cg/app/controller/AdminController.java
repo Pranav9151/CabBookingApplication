@@ -50,57 +50,42 @@ public class AdminController {
 
 	@DeleteMapping("/{adminId}")
 	public List<Admin> deleteAdmin(@PathVariable int adminId) throws AdminNotFoundException {
-		List<Admin> s = null;
-		try {
-			s = ias.deleteAdmin(adminId);
+		
+		return ias.deleteAdmin(adminId);
 
-		} catch (Exception e) {
-			throw new AdminNotFoundException("Admin with given ID: " + adminId + " Not Found to Delete");
-		}
-		return s;
+		
 	}
 		@PutMapping
 		public Admin updateAdmin(@RequestBody Admin admin) throws AdminNotFoundException {
-			Admin a = null;
-
-			try {
-				a = ias.getAdminById(admin.getAdminId());
-				ias.updateAdmin(admin);
-			} catch (Exception e) {
-				throw new AdminNotFoundException("Admin Not Found to Update");
-			}
-			return a;
+			
+			//ias.getAdminById(admin.getAdminId());
+			return	ias.updateAdmin(admin);
+			
 		}
 		@GetMapping("/{adminId}")
 		public Admin GetAdminById(@PathVariable int adminId) throws AdminNotFoundException {
-			Admin a = null;
+			
+				return ias.getAdminById(adminId);
 
-			try {
-				a = ias.getAdminById(adminId);
-
-			} catch (Exception e) {
-				throw new AdminNotFoundException("Admin with ID: " + adminId + " not found!");
-			}
-			return a;
+			
 		}
+		
+		
 		@SuppressWarnings("unused")
 		@GetMapping("/alltrips/{customerId}")
 		public List<TripBooking> getAllTrips(@PathVariable int customerId) throws CustomerNotFoundException {
 
-			Customer c = null;
-			List<TripBooking> t = null;
-			try {
-				c = cusService.viewCustomer(customerId);
-				t = ias.getAllTrips(customerId);
-			} catch (Exception e) {
-				throw new CustomerNotFoundException("Can not find trips of Customer ID: " + customerId);
-			}
-			return t;
+			//c= cusService.viewCustomer(customerId);
+			return ias.getAllTrips(customerId);
+			
 		}
+		
 		@GetMapping("/customerwise")
 		public List<TripBooking> getTripsCustomerwise() {
-			return ias.getTripsCustomerwise();
+			return ias.getTripsCustomerwise(Integer customerId);
 		}
+		
+		
 		@GetMapping("/datewise")
 		public List<TripBooking> getTripsDatewise() {
 			return ias.getTripsDatewise();

@@ -1,38 +1,32 @@
 package com.cg.app.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Customer extends AbstractUser{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int CustomerId;
 
-	public Customer(int customerId) {
-		super();
-		CustomerId = customerId;
-	}
-
-	public int getCustomerId() {
-		return CustomerId;
-	}
-
-	public void setCustomerId(int customerId) {
-		CustomerId = customerId;
-	}
-
-	public Customer() {
-
-	}
-
-	public Customer get() {
-		 
-		return null;
-	}
+	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+	private List<TripBooking> tripBookings=new ArrayList<TripBooking>();
 }
 	
 	

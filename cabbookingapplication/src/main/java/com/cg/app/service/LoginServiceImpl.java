@@ -9,7 +9,7 @@ import com.cg.app.dao.LoginDao;
 public class LoginServiceImpl  implements LoginService {
 	
 		@Autowired
-		LoginDao ld;
+		LoginRepo ld;
 
 		@Override
 		public String validateCredintials(Object obj) {

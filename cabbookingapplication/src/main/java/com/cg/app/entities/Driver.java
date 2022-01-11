@@ -1,13 +1,24 @@
 package com.cg.app.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Driver extends AbstractUser  {
 	
 	@Id
@@ -15,54 +26,10 @@ public class Driver extends AbstractUser  {
 	private int driverId;
 	private String licenseNo;
 	private float rating;
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "driver")
 	private Cab cab;
 	
-	public Driver(int driverId, String licenseNo, float rating, Cab cab) {
-		super();
-		this.driverId = driverId;
-		this.licenseNo = licenseNo;
-		this.rating = rating;
-		this.cab = cab;
-	}
-
-	public Cab getCab() {
-		return cab;
-	}
-
-	public void setCab(Cab cab) {
-		this.cab = cab;
-	}
-
-	public int getDriverId() {
-		return driverId;
-	}
-
-	public void setDriverId(int driverId) {
-		this.driverId = driverId;
-	}
-
-	public String getLicenseNo() {
-		return licenseNo;
-	}
-
-	public void setLicenseNo(String licenseNo) {
-		this.licenseNo = licenseNo;
-	}
-
-	public float getRating() {
-		return rating;
-	}
-
-	public void setRating(float rating) {
-		this.rating = rating;
-	}
-	
-	
-	
-	
-	
-	
-	
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "driver")
+	private List<TripBooking> tripBookings=new ArrayList<TripBooking>();
 
 }

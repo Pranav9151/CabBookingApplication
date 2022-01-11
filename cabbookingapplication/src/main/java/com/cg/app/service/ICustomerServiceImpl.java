@@ -1,13 +1,19 @@
 package com.cg.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.cg.app.entities.Admin;
+import com.cg.app.entities.Cab;
 import com.cg.app.entities.Customer;
+import com.cg.app.exception.AdminNotFoundException;
+import com.cg.app.exception.CabNotFoundException;
+import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.repository.ICustomerRepository;
 
-import net.bytebuddy.dynamic.DynamicType.Builder.FieldDefinition.Optional;
 
 @Service("customerSer")
 public class ICustomerServiceImpl implements ICustomerService {
@@ -20,45 +26,77 @@ public class ICustomerServiceImpl implements ICustomerService {
 
 	@Override
 	public Customer insertCustomer(Customer customer) {
-		 Customer savedCustomer=customerRepo.save(customer);
-		return savedCustomer;
+		
+		return customerRepo.save(customer);
 	}
 
 	@Override
 	public Customer updateCustomer(Customer customer) {
-		Customer upd= customerRepo.findById(customer.getCustomerId()).get();
-		if(upd != null) {
-			
-			upd.setEmail(customer.getEmail());
-			upd.setMobileNumber(customer.getMobileNumber());
-			upd.setUsername(customer.getUsername());
-			upd.setPassword(customer.getPassword());
-			customerRepo.save(upd);
-		}
-		return upd;
 		
+
+		Optional<Customer> opt= customerRepo.findById(customer.getCustomerId());
+		
+		if(opt.isPresent()) {
+			
+			return customerRepo.save(customer);
+		
+		}
+		else
+			throw new CustomerNotFoundException("Customer does not exist with the Id");
+			
 	}
 
 	@Override
 	public Customer deleteCustomer(Customer customer) {
-		customerRepo.delete(customer);
-		return customer;
+
+		Optional<Customer> opt= customerRepo.findById(customer.getCustomerId());
+		
+		if(opt.isPresent()) {
+          return  customerRepo.delete(customer);
+			
+			//return customerRepo.findById(customerId);
+		
+		}
+		else
+			throw new CustomerNotFoundException("Customer does not exist with the Id");
+		
 	}
 
 	@Override
 	public List<Customer> viewCustomers() {
+	
+		Optional<Customer> opt= customerRepo.findAll();
 		
-		return customerRepo.findAll();
+		if(opt.isPresent()) {
+			
+			Customer customer= opt.get();
+			return customerRepo.viewCustomers();
+			
+		}else
+			throw new CustomerNotFoundException("Invalid Customer Id");
+		
 	}
 
 	@Override
 	public Customer validateCustomer(String username, String password) {
 		
-		return null;
+		
+		
+		return null; 
 	}
+	
 	@Override
 	public Customer viewCustomer(int customerId) {
-		return customerRepo.findById(customerId).get();
+
+		Optional<Customer> opt= customerRepo.findById(customerId);
+		
+		if(opt.isPresent()) {
+			Customer customer= opt.get();
+			return customer;
+		}
+		else
+			throw new CustomerNotFoundException("Customer does not exist with the Id");
+		
 	}
 	
 	

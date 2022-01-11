@@ -13,7 +13,7 @@ public interface IDriverService {
 	
 	public List<Driver> viewBestDrivers() throws DriverNotFoundException;
 	
-	public List<Driver> insertDriver(Driver driver);
+	public Driver insertDriver(Driver driver);
 	
 	public Driver updateDriver(Driver driver) throws DriverNotFoundException;
 	

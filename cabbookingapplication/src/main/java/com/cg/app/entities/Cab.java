@@ -1,11 +1,20 @@
 package com.cg.app.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Cab {
 	
 	
@@ -15,31 +24,7 @@ public class Cab {
 	private String carType;
 	private float perkmRate;
 	
-	public Cab(int cabId, String carType, float perkmRate) {
-		super();
-		this.cabId = cabId;
-		this.carType = carType;
-		this.perkmRate = perkmRate;
-	}
-	public int getCabId() {
-		return cabId;
-	}
-	public void setCabId(int cabId) {
-		this.cabId = cabId;
-	}
-	public String getCarType() {
-		return carType;
-	}
-	public void setCarType(String carType) {
-		this.carType = carType;
-	}
-	public float getPerkmRate() {
-		return perkmRate;
-	}
-	public void setPerkmRate(float perkmRate) {
-		this.perkmRate = perkmRate;
-	}
-	
-	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Driver driver;
 
 }

@@ -11,9 +11,10 @@ public interface IAdminService {
 	public Admin insertAdmin(Admin admin);
 	public Admin updateAdmin(Admin admin);
 	public List<Admin> deleteAdmin(int adminId);
+	
 	public List<TripBooking>getAllTrips(int CustomerId) throws CustomerNotFoundException;
-	public List<TripBooking>getTripsCabwise();
-	public List<TripBooking>getTripsCustomerwise();
+	public List<TripBooking>getTripsCabwise(Integer cabId);
+	public List<TripBooking>getTripsCustomerwise(Integer customerId);
 	public List<TripBooking>getTripsDatewise();
 	
 	public List<TripBooking>getAllTripsforDays(int customerId,LocalDateTime fromDate,LocalDateTime toDate)throws CustomerNotFoundException;

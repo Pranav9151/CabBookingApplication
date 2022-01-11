@@ -1,49 +1,89 @@
 package com.cg.app.service;
 
 import java.util.List;
+
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.cg.app.entities.Admin;
+import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
+import com.cg.app.exception.AdminNotFoundException;
 import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.repository.IDriverRepository;
 
-@Service("ids")
+@Service
 public class IDriverServiceImpl implements IDriverService{
 
 @Autowired
-	IDriverRepository dDao;
+	IDriverRepository driverRepo;
+
+
 @Override
 	public List<Driver> displayAllDriver() {
-		return dDao.findAll();
+		return driverRepo.findAll();
 	}
+
+
 	@Override
-	public Driver viewDriver(int driverId) throws DriverNotFoundException {
-		return dDao.findById(driverId).get();
+	public Driver viewDriver(int driverId)  {
+
+		Optional<Driver> opt= driverRepo.findById(driverId);
+		
+		if(opt.isPresent()) {
+			Driver driver= opt.get();
+			return driver;
+		}
+		else
+			throw new DriverNotFoundException("Driver does not exist with the Id");
 	}
+	
+	
 	@Override
-	public List<Driver> viewBestDrivers() throws DriverNotFoundException {
-		List<Driver> bestDrivers = dDao.findAll();
+	public List<Driver> viewBestDrivers() {
+		List<Driver> bestDrivers = driverRepo.findAll();
 		return bestDrivers.stream().filter((d) -> d.getRating() >= 4.5).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<Driver> insertDriver(Driver driver) {
-		dDao.saveAndFlush(driver);
-		return dDao.findAll();
+	public Driver insertDriver(Driver driver) {
+		return driverRepo.save(driver);
+		
 	}
 
 	@Override
-	public Driver updateDriver(Driver driver) throws DriverNotFoundException {
-
-		return dDao.saveAndFlush(driver);
+	public Driver updateDriver(Driver driver)  {
+		
+		Optional<Driver> opt= driverRepo.findById(driver.getDriverId());
+		
+		if(opt.isPresent()) {
+			
+			return driverRepo.save(driver);
+		
+		}
+		else
+			throw new DriverNotFoundException("Driver does not exist with the Id");
+		
 	}
+	
 	@Override
-	public List<Driver> deleteDriver(int driverId) throws DriverNotFoundException {
-		dDao.deleteById(driverId);
-		return dDao.findAll();
+	public List<Driver> deleteDriver(int driverId)  {
+
+		Optional<Driver> opt= driverRepo.findById(driverId);
+		
+		if(opt.isPresent()) {
+			Driver driver= opt.get();
+			driverRepo.delete(driver);
+			
+			return driverRepo.findAll();
+			
+		}
+		else
+			throw new DriverNotFoundException("Driver does not exist with the Id");
+		
 	}
 
 }
