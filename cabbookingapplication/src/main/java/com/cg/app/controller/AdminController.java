@@ -80,10 +80,10 @@ public class AdminController {
 			
 		}
 		
-		@GetMapping("/customerwise")
+		/*@GetMapping("/customerwise")
 		public List<TripBooking> getTripsCustomerwise() {
 			return adminService.getTripsCustomerwise(int customerId);
-		}
+		}*/
 		
 		
 		@GetMapping("/datewise")

@@ -86,19 +86,19 @@ public class ITripBookingServiceImpl implements ITripBookingService {
 		
 	}
 
-	@Override
-	public float calculateBill(int customerId) {
-	
-	Optional<Customer> opt= customerRepo.findById(customerId);
-		
-		if(opt.isPresent()) {
-			
-			Customer customer= opt.get();
-			return tripBooking.getCustomer().getCab();
-			
-		}else
-			throw new CustomerNotFoundException("Invalid Cab Id");
-	}
+//	@Override
+//	public float calculateBill(int customerId) {
+//	
+//	Optional<Customer> opt= customerRepo.findById(customerId);
+//		
+//		if(opt.isPresent()) {
+//			
+//			Customer customer= opt.get();
+//			return tripBooking.getCustomer().getCab();
+//			
+//		}else
+//			throw new CustomerNotFoundException("Invalid Cab Id");
+//	}
 
 	@Override
 	public List<TripBooking> viewAllTripsById(int tripbookingId) {

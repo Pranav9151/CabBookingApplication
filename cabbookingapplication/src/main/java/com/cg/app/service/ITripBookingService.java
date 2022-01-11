@@ -14,7 +14,7 @@ public interface ITripBookingService {
 
 	public List<TripBooking> viewAllTripsCustomer(int customerId);
 
-	public float calculateBill(int customerId);
+	//public float calculateBill(int customerId);
 
 	public List<TripBooking> viewAllTripsById(int tripbookingId);
 

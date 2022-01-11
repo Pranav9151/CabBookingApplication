@@ -53,10 +53,10 @@ public class DriverController {
 		return driverServices.viewBestDrivers();
 		
 	}
-	@PostMapping
+	/*@PostMapping
 	public List<Driver> insertDriver(@RequestBody Driver driver) {
 		return driverServices.insertDriver(driver);
-	}
+	}*/
 	@SuppressWarnings("unused")
 	@PutMapping
 	public Driver updateDriver(@RequestBody Driver driver) throws DriverNotFoundException {
