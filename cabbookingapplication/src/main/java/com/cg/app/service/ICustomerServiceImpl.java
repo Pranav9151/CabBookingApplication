@@ -96,6 +96,12 @@ public class ICustomerServiceImpl implements ICustomerService {
 			throw new CustomerNotFoundException("Customer does not exist with the Id");
 		
 	}
+
+	@Override
+	public Customer login(String username, String password) throws CustomerNotFoundException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	

@@ -38,9 +38,10 @@ public class CustomerController {
 	}
 		else
 			throw new CustomerNotFoundException("Invalid Role...");
+	}
 		
 		
-	@PostMapping
+	@PostMapping()
 	public Customer insertCustomer(@RequestBody Customer customer) {
 		return customerService.insertCustomer(customer);
 	}
@@ -48,41 +49,28 @@ public class CustomerController {
 	@SuppressWarnings("unused")
 	@PutMapping
 	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException {
-		
+		Customer cViewer=null;
 			cViewer = viewCustomer(customer.getCustomerId());
-			c = cusService.updateCustomer(customer);
-		} catch (Exception e) {
-			throw new CustomerNotFoundException("Customer Not Found to perform Update Operation!");
-		}
-		return c;
+			return customerService.updateCustomer(customer);
 	}
 	@SuppressWarnings("unused")
 	@DeleteMapping
 	public Customer deleteCustomer(Customer customer) throws CustomerNotFoundException {
+		
 		Customer cViewer = null;
-		Customer c = null;
-		try {
 			cViewer = viewCustomer(customer.getCustomerId());
-			c = cusService.deleteCustomer(customer);
-		} catch (Exception e) {
-			throw new CustomerNotFoundException("Customer Not Found to perform Delete Operation!");
-		}
-		return c;
+			return customerService.deleteCustomer(customer);
+		
 	}
 	@GetMapping(value = "all")
 	public List<Customer> viewCustomers() {
-		return cusService.viewCustomers();
+		return customerService.viewCustomers();
 	}
 
 	@GetMapping(value = "/{customerId}")
 	public Customer viewCustomer(@PathVariable int customerId) throws CustomerNotFoundException {
-		Customer c = null;
-		try {
-			c = cusService.viewCustomer(customerId);
-		} catch (Exception e) {
-			throw new CustomerNotFoundException("Customer with Id: " + customerId + " Not Found!");
-		}
-		return c;
+		return customerService.viewCustomer(customerId);
+		
 	}
 	
 	
