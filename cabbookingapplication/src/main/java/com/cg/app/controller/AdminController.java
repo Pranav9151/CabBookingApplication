@@ -28,30 +28,30 @@ import com.cg.app.service.LoginService;
 @RequestMapping("/admin")
 public class AdminController {
 	@Autowired
-	IAdminService ias;
+	IAdminService adminService;
 
 	@Autowired
-	LoginService ls;
+	LoginService loginService;
 
 	@Autowired
-	ICustomerService cusService;
+	ICustomerService customerService;
 	@PostMapping("/login")
 	public String validateAdmin(@RequestBody Admin admin)  {
 		
 		
-			return ls.validateCredintials(admin);
+			return loginService.validateCredintials(admin);
 		
 	}
 	
 	@PostMapping
 	public Admin insertAdmin(@RequestBody Admin admin) {
-		return ias.insertAdmin(admin);
+		return adminService.insertAdmin(admin);
 	}
 
 	@DeleteMapping("/{adminId}")
 	public List<Admin> deleteAdmin(@PathVariable int adminId) throws AdminNotFoundException {
 		
-		return ias.deleteAdmin(adminId);
+		return adminService.deleteAdmin(adminId);
 
 		
 	}
@@ -59,13 +59,13 @@ public class AdminController {
 		public Admin updateAdmin(@RequestBody Admin admin) throws AdminNotFoundException {
 			
 			//ias.getAdminById(admin.getAdminId());
-			return	ias.updateAdmin(admin);
+			return	adminService.updateAdmin(admin);
 			
 		}
 		@GetMapping("/{adminId}")
 		public Admin GetAdminById(@PathVariable int adminId) throws AdminNotFoundException {
 			
-				return ias.getAdminById(adminId);
+				return adminService.getAdminById(adminId);
 
 			
 		}
@@ -76,26 +76,26 @@ public class AdminController {
 		public List<TripBooking> getAllTrips(@PathVariable int customerId) throws CustomerNotFoundException {
 
 			//c= cusService.viewCustomer(customerId);
-			return ias.getAllTrips(customerId);
+			return adminService.getAllTrips(customerId);
 			
 		}
 		
 		@GetMapping("/customerwise")
 		public List<TripBooking> getTripsCustomerwise() {
-			return ias.getTripsCustomerwise(Integer customerId);
+			return adminService.getTripsCustomerwise(int customerId);
 		}
 		
 		
 		@GetMapping("/datewise")
 		public List<TripBooking> getTripsDatewise() {
-			return ias.getTripsDatewise();
+			return adminService.getTripsDatewise();
 		}
 		@GetMapping("fordays/{customerId}/{fromDate}/{toDate}")
 		public List<TripBooking> getAllTripsForDays(@PathVariable("customerId") int customerId,
 				@PathVariable("fromDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fromDate,
 				@PathVariable("toDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime toDate)
 				throws CustomerNotFoundException {
-			return ias.getAllTripsforDays(customerId, fromDate, toDate);
+			return adminService.getAllTripsforDays(customerId, fromDate, toDate);
 		}
 
 

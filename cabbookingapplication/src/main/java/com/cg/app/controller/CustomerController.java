@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.app.entities.Customer;
+import com.cg.app.entities.Login;
 import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.ICustomerService;
@@ -23,18 +24,27 @@ import com.cg.app.service.LoginService;
 @RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
-	ICustomerService cusService;
+	ICustomerService customerService;
 	@Autowired
-	LoginService ls;
+	LoginService loginService;
 	@PostMapping("/login")
-	public String validateCustomer(@RequestBody Customer customer) {
+	public Customer loginCustomer(@RequestBody Login login) {
+		
+		if(login.getRole().equals("customer")) {
+			
 
-		return ls.validateCredintials(customer);
+		return loginService.loginService(login.getUsername(),login.getPassword());
+		
 	}
+		else
+			throw new CustomerNotFoundException("Invalid Role...");
+		
+		
 	@PostMapping
 	public Customer insertCustomer(@RequestBody Customer customer) {
-		return cusService.insertCustomer(customer);
+		return customerService.insertCustomer(customer);
 	}
+	
 	@SuppressWarnings("unused")
 	@PutMapping
 	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException {

@@ -1,14 +1,13 @@
 package com.cg.app.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import org.springframework.stereotype.Repository;
+
 import com.cg.app.entities.Customer;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
+	public Customer findByUsernameAndPassword(String usrename, String password);
 
 
 	

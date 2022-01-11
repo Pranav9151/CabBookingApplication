@@ -8,17 +8,23 @@ import org.springframework.stereotype.Service;
 
 import com.cg.app.entities.Admin;
 import com.cg.app.entities.Cab;
+import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
 import com.cg.app.exception.AdminNotFoundException;
 import com.cg.app.exception.CabNotFoundException;
+import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.repository.ICabRepository;
+import com.cg.app.repository.IDriverRepository;
 
 @Service
 public class ICabServiceImpl implements ICabService{
 
 	@Autowired
 	private ICabRepository cabRepo;
+	
+	@Autowired
+	private IDriverRepository driverRepo;
 	
 	@Override
 		public Cab insertCab(Cab cab) {
@@ -43,7 +49,16 @@ public class ICabServiceImpl implements ICabService{
 	@Override
 	public Cab deleteCab(Cab cab) {
 		
-		return null;
+
+		Optional<Cab> opt= cabRepo.findById(cab.getCabId());
+		
+		if(opt.isPresent()) {
+		cabRepo.delete(cab);
+			return cab;
+		}
+		else
+			throw new CabNotFoundException("Cab does not exist with the Id");
+		
 	}
 
 	@Override

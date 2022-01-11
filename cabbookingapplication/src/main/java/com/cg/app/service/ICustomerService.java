@@ -3,6 +3,7 @@ package com.cg.app.service;
 import java.util.List;
 
 import com.cg.app.entities.Customer;
+import com.cg.app.exception.CustomerNotFoundException;
 
 public interface ICustomerService {
 	
@@ -15,7 +16,7 @@ public interface ICustomerService {
 	public List<Customer> viewCustomers();
 	public Customer viewCustomer(int customerId);
 	
-	public Customer validateCustomer(String username, String password);
+	public Customer login(String username, String password)throws CustomerNotFoundException;
 	
 
 }

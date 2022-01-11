@@ -1,15 +1,18 @@
 package com.cg.app.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.app.entities.Admin;
+import com.cg.app.entities.Cab;
 import com.cg.app.entities.Customer;
 import com.cg.app.entities.TripBooking;
 import com.cg.app.exception.AdminNotFoundException;
+import com.cg.app.exception.CabNotFoundException;
 import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.TripBookingNotFoundException;
 import com.cg.app.repository.ICustomerRepository;
@@ -86,7 +89,15 @@ public class ITripBookingServiceImpl implements ITripBookingService {
 	@Override
 	public float calculateBill(int customerId) {
 	
-		return 0;
+	Optional<Customer> opt= customerRepo.findById(customerId);
+		
+		if(opt.isPresent()) {
+			
+			Customer customer= opt.get();
+			return tripBooking.getCustomer().getCab();
+			
+		}else
+			throw new CustomerNotFoundException("Invalid Cab Id");
 	}
 
 	@Override

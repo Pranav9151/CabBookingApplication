@@ -52,10 +52,8 @@ public class ICustomerServiceImpl implements ICustomerService {
 		Optional<Customer> opt= customerRepo.findById(customer.getCustomerId());
 		
 		if(opt.isPresent()) {
-          return  customerRepo.delete(customer);
-			
-			//return customerRepo.findById(customerId);
-		
+		customerRepo.delete(customer);
+			return customer;
 		}
 		else
 			throw new CustomerNotFoundException("Customer does not exist with the Id");
@@ -65,15 +63,9 @@ public class ICustomerServiceImpl implements ICustomerService {
 	@Override
 	public List<Customer> viewCustomers() {
 	
-		Optional<Customer> opt= customerRepo.findAll();
+	 return customerRepo.findAll();
+	 
 		
-		if(opt.isPresent()) {
-			
-			Customer customer= opt.get();
-			return customerRepo.viewCustomers();
-			
-		}else
-			throw new CustomerNotFoundException("Invalid Customer Id");
 		
 	}
 
@@ -81,9 +73,15 @@ public class ICustomerServiceImpl implements ICustomerService {
 	public Customer validateCustomer(String username, String password) {
 		
 		
+		Customer customer=customerRepo.findByUsernameAndPassword(username, password);
 		
-		return null; 
-	}
+	
+		if (customer==null) throw new CustomerNotFoundException("Invalid Username Or Password");
+		else
+			return customer;
+		
+		
+	} 
 	
 	@Override
 	public Customer viewCustomer(int customerId) {
