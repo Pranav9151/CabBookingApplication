@@ -63,9 +63,20 @@ public class ICabServiceImpl implements ICabService{
 
 	@Override
 	public List<Cab> viewCabsOfType(String carType) {
-	
-		return null;
+		
+       Optional<Cab> opt= cabRepo.findById(carType);
+		
+		if(opt.isPresent()) {
+			
+			Cab cab= opt.get();
+			return cabRepo.findAll();
+			
+		}else
+			throw new CabNotFoundException("Invalid Cab type");
+		
 	}
+	
+	
 
 	@Override
 	public int countCabsOfType(String carType) {
@@ -75,8 +86,16 @@ public class ICabServiceImpl implements ICabService{
 
 	@Override
 	public Cab getCabById(int cabID) {
-	
-		return null;
+     Optional<Cab> opt= cabRepo.findById(cabID);
+		
+		if(opt.isPresent()) {
+			Cab cab= opt.get();
+			return cab;
+		}
+		else
+			throw new CabNotFoundException("cab does not exist with the Id");
+		
+		
 	}
 
 	@Override
