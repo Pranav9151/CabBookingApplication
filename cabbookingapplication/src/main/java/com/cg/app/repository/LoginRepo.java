@@ -1,5 +1,13 @@
 package com.cg.app.repository;
 
-public class LoginRepo {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.cg.app.entities.Customer;
+
+@Repository
+public class LoginRepo  extends JpaRepository{
+
+
+
 
 }
