@@ -1,6 +1,7 @@
 package com.cg.app.controller;
 
 import java.time.LocalDateTime;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.IAdminService;
 import com.cg.app.service.ICustomerService;
-import com.cg.app.service.LoginService;
+
 
 @RestController
 @RequestMapping("/admin")
@@ -30,18 +31,18 @@ public class AdminController {
 	@Autowired
 	IAdminService adminService;
 
-	@Autowired
-	LoginService loginService;
+	//@Autowired
+	//LoginService loginService;
 
 	@Autowired
 	ICustomerService customerService;
-	@PostMapping("/login")
+	/*@PostMapping("/login")
 	public String validateAdmin(@RequestBody Admin admin)  {
 		
 		
 			return loginService.validateCredintials(admin);
 		
-	}
+	}*/
 	
 	@PostMapping
 	public Admin insertAdmin(@RequestBody Admin admin) {

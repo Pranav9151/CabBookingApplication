@@ -69,7 +69,7 @@ public class ICustomerServiceImpl implements ICustomerService {
 		
 	}
 
-	@Override
+	/*@Override
 	public Customer validateCustomer(String username, String password) {
 		
 		
@@ -81,7 +81,7 @@ public class ICustomerServiceImpl implements ICustomerService {
 			return customer;
 		
 		
-	} 
+	} */
 	
 	@Override
 	public Customer viewCustomer(int customerId) {

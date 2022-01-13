@@ -3,6 +3,7 @@ package com.cg.app.controller;
 import java.util.List;
 
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +19,16 @@ import com.cg.app.entities.Login;
 import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.ICustomerService;
-import com.cg.app.service.LoginService;
+//import com.cg.app.service.LoginService;
 
 @RestController
 @RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
 	ICustomerService customerService;
-	@Autowired
-	LoginService loginService;
-	@PostMapping("/login")
+	//@Autowired
+	//LoginService loginService;
+	/*@PostMapping("/login")
 	public Customer loginCustomer(@RequestBody Login login) {
 		
 		if(login.getRole().equals("customer")) {
@@ -38,7 +39,7 @@ public class CustomerController {
 	}
 		else
 			throw new CustomerNotFoundException("Invalid Role...");
-	}
+	}*/
 		
 		
 	@PostMapping()

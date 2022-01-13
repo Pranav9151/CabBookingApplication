@@ -56,10 +56,10 @@ import com.cg.app.service.ICabService;
 
 		}
 
-		@GetMapping(value = "type/{carType}")
-		public List<Cab> viewCabsOfType(String carType) {
-			return iCabService.viewCabsOfType(carType);
-		}
+		//@GetMapping(value = "type/{carType}")
+		//public List<Cab> viewCabsOfType(String carType) {
+			//return iCabService.viewCabsOfType(carType);
+		//}
 		
 		
 		
