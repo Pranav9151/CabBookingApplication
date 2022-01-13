@@ -15,6 +15,8 @@ public interface ICustomerService {
 	
 	public List<Customer> viewCustomers();
 	public Customer viewCustomer(int customerId);
+	public Customer validateCustomer(String username, String password);
+	
 	
 	//public Customer login(String username, String password)throws CustomerNotFoundException;
 	

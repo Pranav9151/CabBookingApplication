@@ -61,20 +61,20 @@ public class ICabServiceImpl implements ICabService{
 		
 	}
 
-//	@Override
-//	public List<Cab> viewCabsOfType(String carType) {
-//		
-//       Optional<Cab> opt= cabRepo.findById(carType);
-//		
-//		if(opt.isPresent()) {
-//			
-//			Cab cab= opt.get();
-//			return cabRepo.findAll();
-//			
-//		}else
-//			throw new CabNotFoundException("Invalid Cab type");
-//		
-//	}
+	@Override
+    public List<Cab> viewCabsOfType(String carType) {
+		
+      Optional<Cab> opt= cabRepo.findByCarType(carType);
+	
+		if(opt.isPresent()) {
+		
+			Cab cab= opt.get();
+			return cabRepo.findAll();
+			
+	}else
+			throw new CabNotFoundException("Invalid Cab type");
+		
+	}
 	
 	
 
