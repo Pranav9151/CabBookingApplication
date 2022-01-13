@@ -13,7 +13,5 @@ public interface LoginRepo extends JpaRepository<Login,Object>
 {
 	public String validateCredintials(Object obj);
 
-public interface LoginRepo extends JpaRepository< Login ,String > {
 
-}
 }

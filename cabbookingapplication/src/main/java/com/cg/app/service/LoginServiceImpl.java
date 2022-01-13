@@ -26,19 +26,11 @@ public class LoginServiceImpl  implements LoginService {
 			return null;
 		}
 		
-		public class LoginServiceImpl implements LoginService {
-
-			public String validateCredintials(Driver driver) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-
-
-}
+		
 
 		@Override
 		public String validateCredintials(Driver driver) {
 			// TODO Auto-generated method stub
 			return null;
 		}
+}
