@@ -5,7 +5,7 @@ import com.cg.app.entities.Driver;
 
 public interface LoginService {
 
-	String validateCredintials(Driver driver);
+	//String validateCredintials(Driver driver);
 
 	Customer loginService(String username, String password);
 
