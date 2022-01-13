@@ -12,7 +12,7 @@ public interface ICabService {
 
 	public Cab deleteCab(Cab cab);
 
-	//public List<Cab> viewCabsOfType(String carType);
+	public List<Cab> viewCabsOfType(String carType);
 
 	public int countCabsOfType(String carType);
 

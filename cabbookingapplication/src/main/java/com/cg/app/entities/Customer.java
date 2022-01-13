@@ -12,12 +12,16 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
+@Setter
 public class Customer extends AbstractUser{
 
 	@Id
@@ -27,7 +31,16 @@ public class Customer extends AbstractUser{
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
 	private List<TripBooking> tripBookings=new ArrayList<TripBooking>();
+	
+	public int getCustomerId() {
+		return this.CustomerId;
+	}
+	public List<TripBooking> getTripBookings(){
+		return this.tripBookings;
+	}
 }
+
+
 	
 	
 	

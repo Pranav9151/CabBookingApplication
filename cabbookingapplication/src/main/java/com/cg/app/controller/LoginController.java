@@ -35,7 +35,7 @@ public class LoginController {
 			throws InvalidUserOrPasswordException {
 
 	
-			Admin admin = new Admin(0);
+			Admin admin = new Admin();
 			admin.setUsername(username);
 			admin.setPassword(password);
 			return lServiceImpl.validateCredintials(admin);

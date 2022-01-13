@@ -26,5 +26,12 @@ public class Cab {
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	private Driver driver;
+	
+	public int getCabId() {
+		return this.cabId;
+	}
+	public Driver getDriver() {
+		return this.driver;
+	}
 
 }

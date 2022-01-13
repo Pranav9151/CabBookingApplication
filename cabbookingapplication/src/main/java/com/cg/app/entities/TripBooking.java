@@ -39,5 +39,17 @@ public class TripBooking {
 	private float distanceInKm;
 	private float bill;
 	
+	public LocalDateTime getFromDateTime() {
+		return this.fromDateTime;
+	}
+	public LocalDateTime getToDateTime() {
+		return this.toDateTime;
+	}
+	public int getTripBookingId() {
+		return this.tripBookingId;
+	}
+	public Customer getCustomer() {
+		return this.customer;
+	}
 
 }

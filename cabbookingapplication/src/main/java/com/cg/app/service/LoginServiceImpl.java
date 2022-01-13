@@ -3,7 +3,6 @@ package com.cg.app.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cg.app.dao.LoginDao;
 import com.cg.app.entities.Customer;
 import com.cg.app.repository.LoginRepo;
 
@@ -16,7 +15,8 @@ public class LoginServiceImpl  implements LoginService {
 		@Override
 		public String validateCredintials(Object obj) {
 
-			return ld.validateCredintials(obj);
+		return ld.validateCredintials(obj);
+			
 		}
 
 		@Override

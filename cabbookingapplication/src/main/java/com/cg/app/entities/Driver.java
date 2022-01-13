@@ -31,5 +31,15 @@ public class Driver extends AbstractUser  {
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "driver")
 	private List<TripBooking> tripBookings=new ArrayList<TripBooking>();
+	
+	public int getDriverId() {
+		return this.driverId;
+	}
+	public float getRating() {
+		return this.rating;
+	}
+	public List<TripBooking> getTripBookings(){
+		return this.tripBookings;
+	}
 
 }
