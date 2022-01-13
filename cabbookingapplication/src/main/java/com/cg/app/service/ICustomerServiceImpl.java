@@ -97,6 +97,12 @@ public class ICustomerServiceImpl implements ICustomerService {
 		
 	}
 
+	@Override
+	public Customer validateCustomer(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 //	@Override
 //	public Customer login(String username, String password) throws CustomerNotFoundException {
 //		// TODO Auto-generated method stub

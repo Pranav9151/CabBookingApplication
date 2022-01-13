@@ -1,12 +1,10 @@
 package com.cg.app.service;
 
-<<<<<<< HEAD
-public class LoginServiceImpl implements LoginService {
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cg.app.entities.Customer;
+import com.cg.app.entities.Driver;
 import com.cg.app.repository.LoginRepo;
 
 @Service("ls")
@@ -27,6 +25,20 @@ public class LoginServiceImpl  implements LoginService {
 			// TODO Auto-generated method stub
 			return null;
 		}
->>>>>>> branch 'master' of https://github.com/Pranav9151/CabBookingApplication.git
+		
+		public class LoginServiceImpl implements LoginService {
+
+			public String validateCredintials(Driver driver) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+
 
 }
+
+		@Override
+		public String validateCredintials(Driver driver) {
+			// TODO Auto-generated method stub
+			return null;
+		}
