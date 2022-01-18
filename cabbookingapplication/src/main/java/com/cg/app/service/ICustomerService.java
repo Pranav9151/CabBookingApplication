@@ -18,7 +18,7 @@ public interface ICustomerService {
 	public Customer validateCustomer(String username, String password);
 	
 	
-	//public Customer login(String username, String password)throws CustomerNotFoundException;
+
 	
 
 }

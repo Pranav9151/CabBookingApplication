@@ -1,6 +1,7 @@
 package com.cg.app.service;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,14 @@ import com.cg.app.repository.ICustomerRepository;
 public class ICustomerServiceImpl implements ICustomerService {
 
 	@Autowired
-	ICustomerRepository customerservice;
+	 private ICustomerRepository customerRepo;
 
-	 private  ICustomerRepository customerRepo;
+	
 	
 
 	@Override
 	public Customer insertCustomer(Customer customer) {
+
 		
 		return customerRepo.save(customer);
 	}
@@ -69,7 +71,7 @@ public class ICustomerServiceImpl implements ICustomerService {
 		
 	}
 
-	/*@Override
+	
 	public Customer validateCustomer(String username, String password) {
 		
 		
@@ -81,7 +83,7 @@ public class ICustomerServiceImpl implements ICustomerService {
 			return customer;
 		
 		
-	} */
+	} 
 	
 	@Override
 	public Customer viewCustomer(int customerId) {
@@ -97,11 +99,7 @@ public class ICustomerServiceImpl implements ICustomerService {
 		
 	}
 
-	@Override
-	public Customer validateCustomer(String username, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 //	@Override
 //	public Customer login(String username, String password) throws CustomerNotFoundException {
