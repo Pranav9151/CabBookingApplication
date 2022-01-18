@@ -28,7 +28,6 @@ public class ICustomerServiceImpl implements ICustomerService {
 	@Override
 	public Customer insertCustomer(Customer customer) {
 
-		
 		return customerRepo.save(customer);
 	}
 
