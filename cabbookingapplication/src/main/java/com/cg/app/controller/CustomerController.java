@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.app.entities.Customer;
-import com.cg.app.entities.Login;
+import com.cg.app.entities.LoginBean;
 import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.ICustomerService;
@@ -58,7 +58,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/login")
-	public Customer loginCustomerHandler(@RequestBody Login login) {
+	public Customer loginCustomerHandler(@RequestBody LoginBean login) {
 		
 	 	return customerService.validateCustomer(login.getusername(),login.getpassword());
 		
