@@ -1,12 +1,13 @@
 package com.cg.app.entities;
 
-import javax.persistence.Entity;
+
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,15 +18,20 @@ public class Login {
 	private String password;
 	private String role;
 	
-	public String getRole() {
-		return this.role;
+	 public String getRole(){
+		 return this.role;
 	}
-	public String getUsername() {
-		return this.username;
+	 public String getpassword(){
+		 return this.password;
 	}
-	public String getPassword() {
-		return this.password;
+	 public String getusername(){
+		 return this.username;
 	}
+	 
+	 
+	
+	
+	
 	
 	
 }

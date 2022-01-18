@@ -1,10 +1,9 @@
 package com.cg.app.controller;
 
 import java.util.List;
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,56 +24,46 @@ import com.cg.app.service.ICustomerService;
 @RequestMapping("/customer")
 public class CustomerController {
 	@Autowired
-	ICustomerService customerService;
-	//@Autowired
-	//LoginService loginService;
-	/*@PostMapping("/login")
-	public Customer loginCustomer(@RequestBody Login login) {
-		
-		if(login.getRole().equals("customer")) {
-			
-
-		return loginService.loginService(login.getUsername(),login.getPassword());
-		
-	}
-		else
-			throw new CustomerNotFoundException("Invalid Role...");
-	}*/
-		
-		
-	@PostMapping()
-	public Customer insertCustomer(@RequestBody Customer customer) {
-		return customerService.insertCustomer(customer);
+	 private ICustomerService customerService;
+	
+	
+	@PostMapping("/register")
+	public ResponseEntity<Customer>  insertCustomer(@RequestBody Customer customer) {
+		Customer cust=customerService.insertCustomer(customer);
+		return  new ResponseEntity<Customer>(cust,HttpStatus.OK);
 	}
 	
-	@SuppressWarnings("unused")
-	@PutMapping
-	public Customer updateCustomer(@RequestBody Customer customer) throws CustomerNotFoundException {
-		Customer cViewer=null;
-			cViewer = viewCustomer(customer.getCustomerId());
-			return customerService.updateCustomer(customer);
+	
+	@PutMapping("/update")
+	public ResponseEntity<Customer>updateCustomer(@RequestBody Customer customer){
+		Customer cust=customerService.updateCustomer(customer);
+			return  new ResponseEntity<Customer>(cust,HttpStatus.OK);
 	}
-	@SuppressWarnings("unused")
-	@DeleteMapping
-	public Customer deleteCustomer(Customer customer) throws CustomerNotFoundException {
-		
-		Customer cViewer = null;
-			cViewer = viewCustomer(customer.getCustomerId());
+
+	@DeleteMapping("/delete/{cid}")
+	public Customer deleteCustomer(@RequestBody Customer customer)  {
 			return customerService.deleteCustomer(customer);
 		
 	}
-	@GetMapping(value = "all")
+	@GetMapping("/viewall")
 	public List<Customer> viewCustomers() {
-		return customerService.viewCustomers();
+		List<Customer> cusList=customerService.viewCustomers();
+		return cusList;
 	}
 
 	@GetMapping(value = "/{customerId}")
-	public Customer viewCustomer(@PathVariable int customerId) throws CustomerNotFoundException {
+	public Customer viewCustomer(@PathVariable int customerId)  {
 		return customerService.viewCustomer(customerId);
 		
 	}
 	
-	
+	@PostMapping("/login")
+	public Customer loginCustomerHandler(@RequestBody Login login) {
+		
+	 	return customerService.validateCustomer(login.getusername(),login.getpassword());
+		
+		
+	}
 	
 	
 
