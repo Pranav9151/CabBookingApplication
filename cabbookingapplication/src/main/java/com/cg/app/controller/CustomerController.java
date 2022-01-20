@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.cg.app.entities.Customer;
 import com.cg.app.entities.LoginBean;
 import com.cg.app.exception.CustomerNotFoundException;
@@ -40,7 +39,7 @@ public class CustomerController {
 			return  new ResponseEntity<Customer>(cust,HttpStatus.OK);
 	}
 
-	@DeleteMapping("/delete/{cid}")
+	@DeleteMapping("/delete")
 	public Customer deleteCustomer(@RequestBody Customer customer)  {
 			return customerService.deleteCustomer(customer);
 		
