@@ -57,7 +57,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/login")
-	public Customer loginCustomerHandler(@RequestBody LoginBean login) {
+	public Customer loginCustomerHandler(@RequestBody LoginBean login)throws CustomerNotFoundException {
 		
 	 	return customerService.validateCustomer(login.getusername(),login.getpassword());
 		

@@ -20,7 +20,7 @@ import com.cg.app.service.ICabService;
 import com.cg.app.service.ICustomerService;
 
 @RestController
-@RequestMapping("/Cab")
+@RequestMapping("/cab")
 public class CabController {
 
 	@Autowired
