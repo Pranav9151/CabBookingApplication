@@ -1,6 +1,7 @@
 package com.cg.app.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,7 +58,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/login")
-	public Customer loginCustomerHandler(@RequestBody LoginBean login)throws InvalidUserOrPasswordException {
+
+	public Customer loginCustomerHandler(@RequestBody LoginBean login)throws CustomerNotFoundException {
 		
 	 	return customerService.validateCustomer(login.getusername(),login.getpassword());
 		
