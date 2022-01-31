@@ -16,47 +16,48 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.app.entities.Cab;
 import com.cg.app.entities.Customer;
+import com.cg.app.exception.CabNotFoundException;
 import com.cg.app.service.ICabService;
 import com.cg.app.service.ICustomerService;
 
 @RestController
-@RequestMapping("/Cab")
+@RequestMapping("/cab")
 public class CabController {
 
 	@Autowired
 	 private ICabService cabService;
 	
 	@PostMapping("/register")
-	public ResponseEntity<Cab>  insertCab(@RequestBody Cab cab) {
+	public ResponseEntity<Cab>  insertCab(@RequestBody Cab cab)throws CabNotFoundException {
 		Cab cabst=cabService.insertCab(cab);
 		return  new ResponseEntity<Cab>(cabst,HttpStatus.OK);
 	}
 	
 	
 	@PutMapping("/update")
-	public ResponseEntity<Cab>updateCab(@RequestBody Cab cab){
+	public ResponseEntity<Cab>updateCab(@RequestBody Cab cab)throws CabNotFoundException{
 		Cab cabst=cabService.updateCab(cab);
 			return  new ResponseEntity<Cab>(HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete")
-	public Cab deleteCab(@RequestBody Cab cab)  {
+	public Cab deleteCab(@RequestBody Cab cab)throws CabNotFoundException  {
 			return cabService.deleteCab(cab);
 		
 	}
 	@GetMapping("/viewCabsOfType")
-	public List<Cab> viewCabsOfType(String carType) {
+	public List<Cab> viewCabsOfType(String carType)throws CabNotFoundException {
 		List<Cab> cabList=cabService.viewCabsOfType(carType);
 		return cabList;
 	}
 
 	@GetMapping(value = "/{cabId}")
-	public Cab viewCab(@PathVariable int cabID)  {
+	public Cab viewCab(@PathVariable int cabID)throws CabNotFoundException  {
 		return cabService.getCabById(cabID);
 		
 	}
 	@DeleteMapping("/delete/{cid}")
-	public List<Cab> deleteCabById(@RequestBody int cabID)  {
+	public List<Cab> deleteCabById(@RequestBody int cabID)throws CabNotFoundException  {
 		List<Cab> cabList=cabService.deleteCabById(cabID);
 			return cabList;
 		

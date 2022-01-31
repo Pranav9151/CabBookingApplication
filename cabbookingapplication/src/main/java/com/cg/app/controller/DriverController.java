@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
 import com.cg.app.entities.LoginBean;
+import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.repository.IDriverRepository;
 import com.cg.app.service.IDriverService;
 
@@ -31,29 +32,30 @@ public class DriverController {
 		return  new ResponseEntity<Driver>(driv,HttpStatus.OK);
 	}
 	@PutMapping("/update")
-	public ResponseEntity<Driver>updateDriver(@RequestBody Driver driver){
+	public ResponseEntity<Driver>updateDriver(@RequestBody Driver driver)throws DriverNotFoundException{
 		Driver  driv=driverService.updateDriver(driver);
 			return  new ResponseEntity<Driver>(driv,HttpStatus.OK);
 	}
-/*@GetMapping( value="/delete/{cid}")
-	public Driver deleteDriver(@RequestBody Driver driver)  {
-	List<Driver>deleteList=driverService.deleteDriver(0);
-			return driverService.deleteDriver(driver);
+
+	@DeleteMapping( value="/delete/{cid}")
+	public List<Driver> deleteDriver(@RequestBody int driverId)throws DriverNotFoundException  {
+	List<Driver> driv=driverService.deleteDriver(driverId);
+			return driv;
 		
-	} */
+	} 
 	@GetMapping("/viewall")
-	public List<Driver> viewBestDrivers() {
+	public List<Driver> viewBestDrivers()throws DriverNotFoundException {
 		List<Driver> drivList=driverService.viewBestDrivers();
 		return drivList;
 	}
 
 	@GetMapping(value = "/{driverId}")
-	public Driver viewDriver(@PathVariable int driverId)  {
+	public Driver viewDriver(@PathVariable int driverId)throws DriverNotFoundException  {
 		return driverService.viewDriver(driverId);
 		
 	}
 	@GetMapping("/alldrivers")
-	public List<Driver> displayAllDrivers() {
+	public List<Driver> displayAllDrivers()throws DriverNotFoundException {
 		List<Driver> alldriv=driverService.displayAllDriver();
 		return alldriv;
 	}

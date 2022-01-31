@@ -21,6 +21,7 @@ import com.cg.app.entities.Customer;
 import com.cg.app.entities.LoginBean;
 import com.cg.app.entities.TripBooking;
 import com.cg.app.exception.AdminNotFoundException;
+import com.cg.app.exception.CabNotFoundException;
 import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.IAdminService;
@@ -36,20 +37,20 @@ public class AdminController {
 
 
 	@PostMapping("/register")
-	public ResponseEntity<Admin>  insertAdmin(@RequestBody Admin admin) {
+	public ResponseEntity<Admin>  insertAdmin(@RequestBody Admin admin)throws AdminNotFoundException {
 		Admin adst=adminService.insertAdmin(admin);
 		return  new ResponseEntity<Admin>(adst,HttpStatus.OK);
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<Admin>updateAdmin(@RequestBody Admin admin){
+	public ResponseEntity<Admin>updateAdmin(@RequestBody Admin admin)throws AdminNotFoundException{
 		Admin adst=adminService.updateAdmin(admin);
 			return  new ResponseEntity<Admin>(adst,HttpStatus.OK);
 	}
 	
 	
 	@DeleteMapping("/delete/{adminId}")
-	public List<Admin> deleteAdmin(@PathVariable int adminId)  {
+	public List<Admin> deleteAdmin(@PathVariable int adminId)throws AdminNotFoundException  {
 		List<Admin> adst=adminService.deleteAdmin(adminId);
 		
 		return	adst;
@@ -57,27 +58,27 @@ public class AdminController {
 	}
 	
 		@GetMapping("/{adminId}")
-		public Admin GetAdminById(@PathVariable int adminId) {
+		public Admin GetAdminById(@PathVariable int adminId)throws AdminNotFoundException {
 			return adminService.getAdminById(adminId);
 
 			
 		}
 		
 		@GetMapping("/alltrips/{customerId}")
-		public List<TripBooking> getAllTrips(@PathVariable int customerId)  {
+		public List<TripBooking> getAllTrips(@PathVariable int customerId)throws CustomerNotFoundException  {
 				List<TripBooking> adList =adminService.getAllTrips(customerId);
 		return	 adList;
 			
 		}
 		
 		@GetMapping("/tripsCabWise/{cabId}")
-		public List<TripBooking> getTripsCabwise(@PathVariable int cabId)  {
+		public List<TripBooking> getTripsCabwise(@PathVariable int cabId)throws CabNotFoundException  {
 				List<TripBooking> adList =adminService.getTripsCabwise(cabId);
 		return	 adList;
 			
 		}
 		@GetMapping("/customerwise/{customerId}")
-		public List<TripBooking> getTripsCustomerwise(@PathVariable Integer customerId) {
+		public List<TripBooking> getTripsCustomerwise(@PathVariable Integer customerId)throws CustomerNotFoundException {
 			List<TripBooking> adList =adminService.getTripsCustomerwise(customerId);
 			return adList;
 		}

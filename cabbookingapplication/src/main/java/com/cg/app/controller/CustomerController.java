@@ -34,30 +34,30 @@ public class CustomerController {
 	
 	
 	@PutMapping("/update")
-	public ResponseEntity<Customer>updateCustomer(@RequestBody Customer customer){
+	public ResponseEntity<Customer>updateCustomer(@RequestBody Customer customer)throws CustomerNotFoundException{
 		Customer cust=customerService.updateCustomer(customer);
 			return  new ResponseEntity<Customer>(cust,HttpStatus.OK);
 	}
 
 	@DeleteMapping("/delete")
-	public Customer deleteCustomer(@RequestBody Customer customer)  {
+	public Customer deleteCustomer(@RequestBody Customer customer)throws CustomerNotFoundException  {
 			return customerService.deleteCustomer(customer);
 		
 	}
 	@GetMapping("/viewall")
-	public List<Customer> viewCustomers() {
+	public List<Customer> viewCustomers()throws CustomerNotFoundException {
 		List<Customer> cusList=customerService.viewCustomers();
 		return cusList;
 	}
 
 	@GetMapping(value = "/{customerId}")
-	public Customer viewCustomer(@PathVariable int customerId)  {
+	public Customer viewCustomer(@PathVariable int customerId)throws CustomerNotFoundException  {
 		return customerService.viewCustomer(customerId);
 		
 	}
 	
 	@PostMapping("/login")
-	public Customer loginCustomerHandler(@RequestBody LoginBean login) {
+	public Customer loginCustomerHandler(@RequestBody LoginBean login)throws InvalidUserOrPasswordException {
 		
 	 	return customerService.validateCustomer(login.getusername(),login.getpassword());
 		

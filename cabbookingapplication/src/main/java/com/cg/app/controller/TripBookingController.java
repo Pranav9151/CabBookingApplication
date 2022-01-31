@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.app.entities.Admin;
 import com.cg.app.entities.TripBooking;
 import com.cg.app.exception.AdminNotFoundException;
+import com.cg.app.exception.CustomerNotFoundException;
+import com.cg.app.exception.TripBookingNotFoundException;
 import com.cg.app.service.ITripBookingService;
 
 @RestController
@@ -33,28 +35,28 @@ public class TripBookingController {
 	}
 
 	@PutMapping("/update")
-	public ResponseEntity<TripBooking>updateTripBooking(@RequestBody TripBooking tripBooking){
+	public ResponseEntity<TripBooking>updateTripBooking(@RequestBody TripBooking tripBooking)throws TripBookingNotFoundException{
 		TripBooking tripst=tripBookingService.updateTripBooking(tripBooking);
 			return  new ResponseEntity<TripBooking>(tripst,HttpStatus.OK);
 	}
 	
 	
 	@DeleteMapping("/delete/{adminId}")
-	public List<TripBooking> deleteTripBooking(@PathVariable int tripBookingId)  {
+	public List<TripBooking> deleteTripBooking(@PathVariable int tripBookingId)throws AdminNotFoundException  {
 		List<TripBooking> tripst=tripBookingService.deleteTripBooking(tripBookingId);
 		
 		return	tripst;
 
 	}
 	@GetMapping("/alltrips/{customerId}")
-	public List<TripBooking> viewAllTripsCustomer(@PathVariable int customerId)  {
+	public List<TripBooking> viewAllTripsCustomer(@PathVariable int customerId) throws CustomerNotFoundException {
 			List<TripBooking> tripList =tripBookingService.viewAllTripsCustomer(customerId);
 	return	 tripList;
 		
 	}
 	
 	@GetMapping("/alltrips/{tripBookingId}")
-	public List<TripBooking> viewAllTripsById(@PathVariable int tripBookingId)  {
+	public List<TripBooking> viewAllTripsById(@PathVariable int tripBookingId)throws TripBookingNotFoundException {
 			List<TripBooking> tripList =tripBookingService.viewAllTripsById(tripBookingId);
 	return	 tripList;
 		
