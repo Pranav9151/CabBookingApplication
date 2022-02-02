@@ -17,6 +17,10 @@ public class CustomErrorResponse {
 	private LocalDateTime timestamp;
 	private String details;
 	private String message;
+	public void setStatus(HttpStatus badRequest) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

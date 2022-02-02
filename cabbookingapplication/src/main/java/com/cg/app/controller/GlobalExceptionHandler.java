@@ -19,25 +19,22 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(CustomerNotFoundException.class)
 	public ResponseEntity<CustomErrorResponse> handleEmployeeException(CustomerNotFoundException ex,WebRequest req){
 		CustomErrorResponse customResponse=new CustomErrorResponse(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
-		//customResponse.setStatus(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<CustomErrorResponse>(customResponse,HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(InvalidUserOrPasswordException.class)
-	public ResponseEntity<CustomErrorResponse> InvalidException(CustomerNotFoundException ex,WebRequest req){
-		CustomErrorResponse customResponse=new CustomErrorResponse(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
-		//customResponse.setStatus(HttpStatus.NOT_FOUND);
+	public ResponseEntity<CustomErrorResponse> InvalidException(InvalidUserOrPasswordException ivd,WebRequest req){
+		CustomErrorResponse customResponse=new CustomErrorResponse(LocalDateTime.now(), ivd.getMessage(), req.getDescription(false));
+		
 		return new ResponseEntity<CustomErrorResponse>(customResponse,HttpStatus.NOT_FOUND);
 	}
 	
 	
 	
 	@ExceptionHandler(Exception.class)
-	public ResponseEntity<CustomErrorResponse> handleException(Exception ex){
-		CustomErrorResponse customResponse=new CustomErrorResponse();
-		//customResponse.setTimestamp(LocalDateTime.now());
-		customResponse.setMessage(ex.getMessage());
-		//customResponse.setStatus(HttpStatus.BAD_REQUEST);
+	public ResponseEntity<CustomErrorResponse>myExceptionhandler(Exception ex,WebRequest req){
+		CustomErrorResponse customResponse=new CustomErrorResponse(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
+		
 		return new ResponseEntity<CustomErrorResponse>(customResponse,HttpStatus.BAD_REQUEST);
 	}
 	
@@ -47,7 +44,7 @@ public class GlobalExceptionHandler {
 		CustomErrorResponse resp=new CustomErrorResponse();
 		resp.setTimestamp(LocalDateTime.now());
 		resp.setMessage(exp.getBindingResult().getFieldError().getDefaultMessage());
-		//resp.setStatus(HttpStatus.BAD_REQUEST);
+		resp.setStatus(HttpStatus.BAD_REQUEST);
 		
 		return new ResponseEntity<>(resp,HttpStatus.BAD_REQUEST);
 		

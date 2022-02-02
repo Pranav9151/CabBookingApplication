@@ -1,5 +1,6 @@
 package com.cg.app.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,24 +35,16 @@ public class TripBooking {
 	private Driver driver;
 	
 	private String fromLocation;
+
 	private String toLocation;
-	private LocalDateTime fromDateTime;
-	private LocalDateTime toDateTime;
+	@JsonFormat(pattern = "dd-mm-yy")
+	private LocalDate fromDateTime;
+	@JsonFormat(pattern = "dd-mm-yy")
+	private LocalDate toDateTime;
 	private boolean status;
 	private float distanceInKm;
 	private float bill;
 	
-	public LocalDateTime getFromDateTime() {
-		return this.fromDateTime;
-	}
-	public LocalDateTime getToDateTime() {
-		return this.toDateTime;
-	}
-	public int getTripBookingId() {
-		return this.tripBookingId;
-	}
-	public Customer getCustomer() {
-		return this.customer;
-	}
+	
 
 }
