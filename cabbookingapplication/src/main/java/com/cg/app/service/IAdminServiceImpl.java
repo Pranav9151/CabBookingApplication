@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.cg.app.entities.Admin;
 import com.cg.app.entities.Cab;
 import com.cg.app.entities.Customer;
+import com.cg.app.entities.Driver;
 import com.cg.app.entities.TripBooking;
 import com.cg.app.exception.AdminNotFoundException;
 import com.cg.app.exception.CabNotFoundException;
@@ -186,6 +187,17 @@ public class IAdminServiceImpl  implements IAdminService{
 		
 		
 	}
-
+public Admin validateAdmin(String username, String password) {
+		
+		
+		Admin admin=adminRepo.findByUsernameAndPassword(username, password);
+		
+	
+		if (admin==null) throw new AdminNotFoundException("Invalid Username Or Password");
+		else
+			return admin;
+		
+		
+	} 
 
 }

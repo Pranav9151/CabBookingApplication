@@ -19,11 +19,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.app.entities.Admin;
 import com.cg.app.entities.Customer;
+import com.cg.app.entities.Driver;
 import com.cg.app.entities.LoginBean;
 import com.cg.app.entities.TripBooking;
 import com.cg.app.exception.AdminNotFoundException;
 import com.cg.app.exception.CabNotFoundException;
 import com.cg.app.exception.CustomerNotFoundException;
+import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.exception.InvalidUserOrPasswordException;
 import com.cg.app.service.IAdminService;
 import com.cg.app.service.ICustomerService;
@@ -98,5 +100,12 @@ public class AdminController {
 			return adminService.getAllTripsforDays(customerId, fromDate, toDate);
 		}
 
+		@PostMapping("/login")
 
+		public Admin loginDriverHandler(@RequestBody LoginBean login)throws AdminNotFoundException {
+			
+		 	return adminService.validateAdmin(login.getusername(),login.getpassword());
+			
+			
+		}	
 }
