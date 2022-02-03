@@ -100,6 +100,7 @@ public class AdminController {
 			return adminService.getAllTripsforDays(customerId, fromDate, toDate);
 		}
 
+
 		@PostMapping("/login")
 
 		public Admin loginDriverHandler(@RequestBody LoginBean login)throws AdminNotFoundException {
@@ -108,4 +109,8 @@ public class AdminController {
 			
 			
 		}	
+
+
 }
+
+		
