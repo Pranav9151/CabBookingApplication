@@ -27,17 +27,9 @@ public class Customer extends AbstractUser{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int CustomerId;
-
 	
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
 	private List<TripBooking> tripBookings=new ArrayList<TripBooking>();
-	
-	public int getCustomerId() {
-		return this.CustomerId;
-	}
-	public List<TripBooking> getTripBookings(){
-		return this.tripBookings;
-	}
 }
 
 
