@@ -97,6 +97,6 @@ public class AdminController {
 			 {
 			return adminService.getAllTripsforDays(customerId, fromDate, toDate);
 		}
-
-
 }
+
+		

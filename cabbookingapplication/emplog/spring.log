@@ -1123,3 +1123,59 @@ Caused by: org.postgresql.util.PSQLException: ERROR: column "customerid" of rela
 2022-02-03 16:54:35.896  INFO 20440 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-02-03 16:54:35.902  INFO 20440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-02-03 16:54:35.910  INFO 20440 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-03 21:29:58.692  INFO 26068 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Starting CabbookingapplicationApplication using Java 17.0.1 on LAPTOP-D7NPTOB4 with PID 26068 (C:\Users\Pranav\git\CabBookingApplication\cabbookingapplication\bin\main started by Pranav in C:\Users\Pranav\git\CabBookingApplication\cabbookingapplication)
+2022-02-03 21:29:58.694 DEBUG 26068 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-02-03 21:29:58.694  INFO 26068 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : No active profile set, falling back to default profiles: default
+2022-02-03 21:29:58.784  INFO 26068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 21:29:58.784  INFO 26068 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 21:30:00.109  INFO 26068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 21:30:00.224  INFO 26068 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 101 ms. Found 5 JPA repository interfaces.
+2022-02-03 21:30:01.148  INFO 26068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8800 (http)
+2022-02-03 21:30:01.168  INFO 26068 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-03 21:30:01.169  INFO 26068 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-03 21:30:01.328  INFO 26068 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-03 21:30:01.329  INFO 26068 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2543 ms
+2022-02-03 21:30:01.622  INFO 26068 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 21:30:01.710  INFO 26068 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-02-03 21:30:01.972  INFO 26068 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 21:30:02.124  INFO 26068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-03 21:30:02.490  INFO 26068 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-03 21:30:02.529  INFO 26068 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-02-03 21:30:03.502  INFO 26068 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 21:30:03.510  INFO 26068 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 21:30:04.101  WARN 26068 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 21:30:04.440  INFO 26068 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-02-03 21:30:04.531  INFO 26068 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8800 (http) with context path ''
+2022-02-03 21:30:04.541  INFO 26068 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Started CabbookingapplicationApplication in 6.839 seconds (JVM running for 8.916)
+2022-02-03 21:42:04.276  INFO 26068 --- [RMI TCP Connection(14)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-03 21:42:04.324  INFO 26068 --- [RMI TCP Connection(14)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 21:42:04.331  INFO 26068 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-03 21:42:04.339  INFO 26068 --- [RMI TCP Connection(14)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-02-03 21:44:40.733  INFO 29912 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Starting CabbookingapplicationApplication using Java 17.0.1 on LAPTOP-D7NPTOB4 with PID 29912 (C:\Users\Pranav\git\CabBookingApplication\cabbookingapplication\bin\main started by Pranav in C:\Users\Pranav\git\CabBookingApplication\cabbookingapplication)
+2022-02-03 21:44:40.734 DEBUG 29912 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Running with Spring Boot v2.6.2, Spring v5.3.14
+2022-02-03 21:44:40.735  INFO 29912 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : No active profile set, falling back to default profiles: default
+2022-02-03 21:44:40.809  INFO 29912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-02-03 21:44:40.810  INFO 29912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-02-03 21:44:41.893  INFO 29912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-02-03 21:44:42.052  INFO 29912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 139 ms. Found 5 JPA repository interfaces.
+2022-02-03 21:44:43.003  INFO 29912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8800 (http)
+2022-02-03 21:44:43.022  INFO 29912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-02-03 21:44:43.023  INFO 29912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-02-03 21:44:43.159  INFO 29912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-02-03 21:44:43.160  INFO 29912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2349 ms
+2022-02-03 21:44:43.449  INFO 29912 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-02-03 21:44:43.537  INFO 29912 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.3.Final
+2022-02-03 21:44:43.922  INFO 29912 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-02-03 21:44:44.173  INFO 29912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-02-03 21:44:44.523  INFO 29912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-02-03 21:44:44.568  INFO 29912 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+2022-02-03 21:44:45.580  INFO 29912 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-02-03 21:44:45.588  INFO 29912 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 21:44:46.119  WARN 29912 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-02-03 21:44:46.479  INFO 29912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-02-03 21:44:46.554  INFO 29912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8800 (http) with context path ''
+2022-02-03 21:44:46.567  INFO 29912 --- [restartedMain] c.c.a.CabbookingapplicationApplication   : Started CabbookingapplicationApplication in 6.562 seconds (JVM running for 8.093)
+2022-02-03 21:45:15.780  INFO 29912 --- [RMI TCP Connection(4)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2022-02-03 21:45:15.827  INFO 29912 --- [RMI TCP Connection(4)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-02-03 21:45:15.833  INFO 29912 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-02-03 21:45:15.843  INFO 29912 --- [RMI TCP Connection(4)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
