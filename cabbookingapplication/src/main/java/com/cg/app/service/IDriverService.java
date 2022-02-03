@@ -2,7 +2,7 @@ package com.cg.app.service;
 
 import java.util.List;
 
-
+import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
 import com.cg.app.exception.DriverNotFoundException;
 
@@ -19,5 +19,5 @@ public interface IDriverService {
 	public Driver updateDriver(Driver driver) throws DriverNotFoundException;
 	
 	public List<Driver> deleteDriver(int driverId) throws DriverNotFoundException;
-
+	public Driver validateDriver(String username, String password);
 }

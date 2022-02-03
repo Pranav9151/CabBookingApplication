@@ -12,6 +12,7 @@ import com.cg.app.entities.Admin;
 import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
 import com.cg.app.exception.AdminNotFoundException;
+import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.repository.IDriverRepository;
 
@@ -85,5 +86,17 @@ public class IDriverServiceImpl implements IDriverService{
 			throw new DriverNotFoundException("Driver does not exist with the Id");
 		
 	}
+public Driver validateDriver(String username, String password) {
+		
+		
+		Driver driver=driverRepo.findByUsernameAndPassword(username, password);
+		
+	
+		if (driver==null) throw new CustomerNotFoundException("Invalid Username Or Password");
+		else
+			return driver;
+		
+		
+	} 
 
 }

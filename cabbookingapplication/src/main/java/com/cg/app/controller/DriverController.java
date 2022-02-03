@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cg.app.entities.Customer;
 import com.cg.app.entities.Driver;
 import com.cg.app.entities.LoginBean;
+import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.exception.DriverNotFoundException;
 import com.cg.app.repository.IDriverRepository;
 import com.cg.app.service.IDriverService;
@@ -62,7 +63,14 @@ public class DriverController {
 		return alldriv;
 	}
 	
-			
+	@PostMapping("/login")
+
+	public Driver loginDriverHandler(@RequestBody LoginBean login)throws DriverNotFoundException {
+		
+	 	return driverService.validateDriver(login.getusername(),login.getpassword());
+		
+		
+	}	
 		
 	}
 	
