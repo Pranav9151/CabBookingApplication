@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cg.app.entities.Cab;
 import com.cg.app.entities.Customer;
+import com.cg.app.entities.LoginBean;
 import com.cg.app.exception.CabNotFoundException;
+import com.cg.app.exception.CustomerNotFoundException;
 import com.cg.app.service.ICabService;
 import com.cg.app.service.ICustomerService;
 
@@ -62,6 +64,14 @@ public class CabController {
 	public List<Cab> deleteCabById(@RequestBody int cabID)throws CabNotFoundException  {
 		List<Cab> cabList=cabService.deleteCabById(cabID);
 			return cabList;
+		
+	}
+	@PostMapping("/login")
+
+	public Cab loginCabrHandler(@RequestBody LoginBean login)throws CabNotFoundException {
+		
+	 	return cabService.validateCab(login.getCarType());
+		
 		
 	}
 }

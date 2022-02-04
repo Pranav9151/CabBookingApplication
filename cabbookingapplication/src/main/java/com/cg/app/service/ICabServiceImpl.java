@@ -116,4 +116,20 @@ public class ICabServiceImpl implements ICabService{
 		
 	}
 
-}
+public Cab validateCab(String carType) {
+		
+		
+		Cab cab=cabRepo.findBycarType(carType);
+		
+	
+		if (cab==null) throw new CustomerNotFoundException("Invalid Username Or Password");
+		else
+			return cab;
+		
+		
+	} 
+
+		
+	} 
+
+

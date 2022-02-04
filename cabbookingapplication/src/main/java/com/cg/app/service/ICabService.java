@@ -3,6 +3,7 @@ package com.cg.app.service;
 import java.util.List;
 
 import com.cg.app.entities.Cab;
+import com.cg.app.entities.Customer;
 
 public interface ICabService {
 	
@@ -19,5 +20,5 @@ public interface ICabService {
 	public Cab getCabById(int cabID);
 
 	public List<Cab> deleteCabById(int cabID);
-
+	public Cab validateCab(String carType);
 }
